@@ -1,6 +1,7 @@
 <?php
 
 use App\PostCard;
+use App\Models\Post;
 use Illuminate\Support\Str;
 use App\PostCardSendingService;
 use Illuminate\Support\Facades\Route;
@@ -21,6 +22,7 @@ use App\Http\Controllers\ChannelController;
 
 Route::get('/test', function () {
     // dd(Str::partNumber(3450983443));
+    return Post::all();
     return Response::errorJson();
     return;
 });
