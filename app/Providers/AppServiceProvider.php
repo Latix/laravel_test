@@ -2,9 +2,11 @@
 
 namespace App\Providers;
 
+use App\Models\Post;
 use App\Models\Channel;
 use App\Mixins\StrMixins;
 use Illuminate\Support\Str;
+use App\Observers\PostObserver;
 use App\PostCardSendingService;
 use App\Billing\BankPaymentGateway;
 use Illuminate\Support\Facades\View;
@@ -40,6 +42,8 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Str::mixin(new StrMixins());
+
+        Post::observe(PostObserver::class);
 
         ResponseFactory::macro('errorJson', function ($message = 'This is the error') {
             return [

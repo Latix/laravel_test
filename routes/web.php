@@ -2,6 +2,7 @@
 
 use App\PostCard;
 use App\Models\Post;
+use App\Events\NewPost;
 use Illuminate\Support\Str;
 use App\PostCardSendingService;
 use Illuminate\Support\Facades\Route;
@@ -21,20 +22,29 @@ use App\Http\Controllers\ChannelController;
 */
 
 Route::get('/test', function () {
+    $post = Post::create([
+        'title' => "Testing 123",
+        'body'  => "This is the body!"
+    ]);
+
+    // event(new NewPost($post));
     // dd(Str::partNumber(3450983443));
     // return Post::all();
     // return Response::errorJson();
     // return;
 
     // Post::chunk(500, function($posts) {
-        foreach (Post::all() as $post) {
-            echo "{$post->id} $post->title <br/>";
-        }
+    //     $count = 0;
+    //     foreach ($posts as $post) {
+    //         echo "{$count} $post->title <br/>";
+    //         $count++;
+    //     }
     // });
-    // foreach (Post::all() as $post) {
+    // $posts = Post::paginate(10);
+    // foreach ($posts as $post) {
     //    echo "{$post->id} $post->title <br/>";
-        // $count++;
     // }
+    // echo $posts->links();
 });
 
 Route::get('/', function () {
