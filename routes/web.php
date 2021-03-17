@@ -22,9 +22,19 @@ use App\Http\Controllers\ChannelController;
 
 Route::get('/test', function () {
     // dd(Str::partNumber(3450983443));
-    return Post::all();
-    return Response::errorJson();
-    return;
+    // return Post::all();
+    // return Response::errorJson();
+    // return;
+
+    // Post::chunk(500, function($posts) {
+        foreach (Post::all() as $post) {
+            echo "{$post->id} $post->title <br/>";
+        }
+    // });
+    // foreach (Post::all() as $post) {
+    //    echo "{$post->id} $post->title <br/>";
+        // $count++;
+    // }
 });
 
 Route::get('/', function () {
