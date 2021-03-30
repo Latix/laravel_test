@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 
 class ExampleTest extends TestCase
 {
-    //test_verifyUser_WHenCalledWithCorrectUserDetails_ShouldReceiveVerifiedMessage
+    //test_verifyUser_WHenCalledWithCorrectUserDetails_ShouldReceiveVerifiedMessage works
     /**
      * A basic test example.
      *
